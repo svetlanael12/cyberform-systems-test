@@ -1,0 +1,1 @@
+export { getPostById } from './postApi';
