@@ -16,13 +16,11 @@ export const List = observer((): JSX.Element => {
         queryFn: getPosts,
     });
 
-    const { posts, setPosts, setCurrentPage } = usePostsContext();
+    const { setPosts, setCurrentPage } = usePostsContext();
 
     useEffect(() => {
         data && setPosts(data);
     }, [data]);
-
-    const isPosts = posts && posts.length;
 
     const onSearch = (search?: string) => {
         if (data) {
@@ -38,16 +36,14 @@ export const List = observer((): JSX.Element => {
         <ConditionalContent isLoading={isLoading} error={error}>
             <Title>Список постов</Title>
 
-            {isPosts && (
-                <React.Fragment>
-                    <SearchInputPosts
-                        name="search"
-                        placeholder="Поиск по названию"
-                        onSearch={onSearch}
-                    />
-                    <PaginationPostsContainer />
-                </React.Fragment>
-            )}
+            <React.Fragment>
+                <SearchInputPosts
+                    name="search"
+                    placeholder="Поиск по названию"
+                    onSearch={onSearch}
+                />
+                <PaginationPostsContainer />
+            </React.Fragment>
         </ConditionalContent>
     );
 });

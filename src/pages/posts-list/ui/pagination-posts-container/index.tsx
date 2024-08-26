@@ -37,9 +37,11 @@ export const PaginationPostsContainer = observer((): JSX.Element => {
 
     const totalPages = Math.ceil(posts.length / postsPerPage);
 
-    const renderCards = currentPosts.map((post, index) => (
-        <PostCard key={index} post={post} />
-    ));
+    const renderCards = currentPosts.length
+        ? currentPosts.map((post, index) => (
+              <PostCard key={index} post={post} />
+          ))
+        : 'Посты не найдены';
 
     const pagination = [...Array(totalPages)].map((_, ind) => {
         const index = ind + 1;
