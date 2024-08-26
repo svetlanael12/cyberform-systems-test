@@ -24,5 +24,5 @@ export const router = createBrowserRouter(
             path: '*',
         },
     ],
-    { basename: 'https://cyberform-systems-test.netlify.app' }
+    { basename: '/projects' }
 );
