@@ -7,9 +7,7 @@ const queryClient = new QueryClient();
 export const App = (): JSX.Element => {
     return (
         <QueryClientProvider client={queryClient}>
-            <HashRouter>
-                <RouterProvider router={router} />
-            </HashRouter>
+            <RouterProvider router={router} />
         </QueryClientProvider>
     );
 };
